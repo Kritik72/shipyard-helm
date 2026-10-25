@@ -4,7 +4,7 @@ metadata:
   name: {{ include "shipyard.fullname" . }}
   namespace: {{ .Release.Namespace }}
     labels:
-      {{- include "shipyard.labels " . | nindent 4 }}
+      {{- include "shipyard.labels" . | nindent 4 }}
 spec: 
   type: ClusterIP
   ports:
