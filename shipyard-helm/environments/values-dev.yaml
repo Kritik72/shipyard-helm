@@ -19,3 +19,9 @@ podSecurityContext:
   runAsGroup: 1000
   seccompProfile:
     type: RuntimeDefault
+
+ingress:
+  enabled: false        # until the AWS Load Balancer Controller is installed  # until metrics-server is installed
+
+podDisruptionBudget:
+  enabled: false     
