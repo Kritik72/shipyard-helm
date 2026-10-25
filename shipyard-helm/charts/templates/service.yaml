@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "shipyard.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+    labels:
+      {{- include "shipyard.labels ". | nindent 4 }}
+spec: 
+  type: ClusterIP
+  ports:
+    - name: http
+      port: {{ .Values.service.port }}
+      targetPort: http
+    selector:
+      {{- include "shipyard.selectorLbels" . | nindent 6 }}      

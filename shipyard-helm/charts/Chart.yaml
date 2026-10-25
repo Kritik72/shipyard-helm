@@ -1,0 +1,6 @@
+apiVersion: v2
+name: shipyard
+Description: A Helm chart for Shipyard
+type: application
+version: 0.1.0
+appVersion: "1.0.0"

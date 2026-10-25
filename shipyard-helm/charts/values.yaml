@@ -1,0 +1,46 @@
+appEnv: local
+
+image:
+  repository: arn:aws:ecr:ap-south-1:924279027628:repository/shipyard
+  tag: ""
+  pullPolicy: IfNotPresent
+
+containerPort: 3000
+replicaCount: 2
+
+extraEnv: {}
+
+service:
+  port: 80
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 200m
+    memory: 256Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
+
+ingress:
+  enabled: true
+  scheme: internet-facing
+  groupName: shipyard
+  host: ""
+  certificateArn: ""
+
+podDisruptionBudget:
+  enabled: false        
+  minAvailable: 1
+
+serviceAccount:
+  create: true
+  name: ""
+  annotations: {}
+
+terminationGracePeriodSeconds: 30
