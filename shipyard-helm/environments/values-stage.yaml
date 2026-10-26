@@ -14,7 +14,7 @@ podDisruptionBudget:
 
 ingress:
   enabled: true
-  certificateArn: ""
+  certificateArn: "arn:aws:acm:ap-south-1:924279027628:certificate/3ab7f3a8-2cbc-4e9c-927a-69ba97461364"
   group-name: shipyard-stage
   host: shipyard.stage.learning.com
 
