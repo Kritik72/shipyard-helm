@@ -1,0 +1,28 @@
+appEnv: Stage
+
+replicaCount: 2
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 4
+  targetCPUUtilizationPercentage: 70
+
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 1
+
+ingress:
+  enabled: true
+  certificateArn: ""
+  group-name: shipyard-stage
+  host: shipyard.stage.learning.com
+
+
+resources:
+  requests:
+    cpu: 200m
+    memory: 192Mi
+  limits:
+    memory: 384Mi
+  

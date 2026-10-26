@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "shipyard.fullName" . }}
+  name: {{ include "shipyard.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "shipyard.labels" . | nindent 4 }}
@@ -71,3 +71,6 @@ spec:
           volumeMounts:
             - name: tmp
               mountPath: /tmp
+      volumes:
+        - name: tmp
+          emptyDir: {}
