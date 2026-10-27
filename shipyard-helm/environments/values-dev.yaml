@@ -10,18 +10,17 @@ resources:
     memory: 192Mi
   
 autoscaling:
-  enabled: false        # keeps the replicas line active until you add hpa.yaml
-topologySpread:
   enabled: true
-podSecurityContext:
-  runAsNonRoot: true
-  runAsUser: 1000       # required: see the note below
-  runAsGroup: 1000
-  seccompProfile:
-    type: RuntimeDefault
-
-ingress:
-  enabled: false        # until the AWS Load Balancer Controller is installed  # until metrics-server is installed
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 70
 
 podDisruptionBudget:
-  enabled: false     
+  enabled: true
+  minAvailable: 1
+
+ingress:
+  enabled: true
+  certificateArn: ""
+  group-name: shipyard-dev
+  host: ""

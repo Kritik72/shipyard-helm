@@ -1,7 +1,7 @@
 appEnv: local
 
 image:
-  repository: arn:aws:ecr:ap-south-1:924279027628:repository/shipyard
+  repository: 924279027628.dkr.ecr.ap-south-1.amazonaws.com/shipyard
   tag: ""
   pullPolicy: IfNotPresent
 
